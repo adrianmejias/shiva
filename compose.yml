@@ -1,0 +1,39 @@
+services:
+    fivem:
+        container_name: fivem
+        build: runtimes/alpine-3
+        image: shiva/fivem:latest
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        restart: unless-stopped
+        stdin_open: true
+        tty: true
+        init: true
+        platform: linux/amd64
+        environment:
+            - LICENSE_KEY="${LICENSE_KEY}"
+            - STEAM_KEY="${STEAM_KEY}"
+            - RCON_PASSWORD="${RCON_PASSWORD:-changeme}"
+            - NO_DEFAULT_CONFIG="${NO_DEFAULT_CONFIG}"
+            - NO_LICENSE_KEY="${NO_LICENSE_KEY}"
+            - NO_STEAM_KEY="${NO_STEAM_KEY}"
+            - NO_ONESYNC="${NO_ONESYNC}"
+        volumes:
+            - ./fivem:/config:rw
+            - ./txData:/txData:rw
+        ports:
+            - "${FORWARD_FIVEM_PORT:-30120}:30120/tcp"
+            - "${FORWARD_FIVEM_PORT:-30120}:30120/udp"
+            - '${FORWARD_TXADMIN_PORT:-40120}:40120/tcp'
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "10m"
+                max-file: "3"
+        networks:
+            - fivem
+networks:
+    fivem:
+        name: fivem
+        driver: bridge
+        external: true

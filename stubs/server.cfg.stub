@@ -1,0 +1,158 @@
+# ============================================================================
+# 622 RP Server Configuration Template
+# ============================================================================
+
+# ============================================================================
+# SERVER IDENTITY & BASIC SETTINGS
+# ============================================================================
+
+# Server hostname displayed in the server browser
+sv_hostname {APP_NAME}
+
+# Maximum number of players (1-32 without OneSync, up to 2048 with OneSync)
+sv_maxclients {MAX_PLAYERS}
+
+# Hide player endpoints in external log output for privacy
+sv_endpointprivacy true
+
+# Server locale for date/time formatting
+sets locale "en-US"
+
+# Server project information displayed in the server browser
+sets sv_projectName {APP_NAME}
+sets sv_projectDesc {APP_DESCRIPTION}
+
+# Server tags for categorization in the server browser
+sets tags {APP_TAGS}
+
+# ============================================================================
+# NETWORK CONFIGURATION
+# ============================================================================
+# WARNING: Only change these if you're using a server with multiple network interfaces
+
+# TCP and UDP endpoints for client connections
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+
+# ============================================================================
+# AUTHENTICATION & SECURITY
+# ============================================================================
+
+# FiveM server license key (required) - Get from https://keymaster.fivem.net
+set sv_licenseKey {LICENSE_KEY}
+
+# Steam Web API key (required for Steam authentication) - Get from https://steamcommunity.com/dev/apikey
+set steam_webApiKey {STEAM_KEY}
+
+# RCON password for remote administration
+rcon_password {RCON_PASSWORD}
+
+# ScriptHook policy (0 = disabled, 1 = enabled)
+# WARNING: Enabling this allows external plugins that may compromise security
+set sv_scriptHookAllowed 0
+
+# ============================================================================
+# DATABASE CONFIGURATION
+# ============================================================================
+
+# MySQL connection string for oxmysql
+# Format: mysql://username:password@host:port/database?charset=utf8mb4
+# For Docker: use host.docker.internal instead of localhost
+set mysql_connection_string {DB_CONNECTION}
+
+# ============================================================================
+# PERFORMANCE & OPTIMIZATION
+# ============================================================================
+
+# OneSync configuration for improved performance and higher player counts
+## [txAdmin CFG validator]: onesync MUST only be set in the txAdmin settings page.
+# set onesync on
+set onesync_enableInfinity 1
+set onesync_enableBeyond 1
+set onesync_population 1
+
+# ============================================================================
+# 622 CORE FRAMEWORK CONFIGURATION
+# ============================================================================
+
+# Framework debug mode (enables detailed logging)
+set framework_debug {APP_DEBUG}
+
+# Core framework settings (these are available to external modules)
+set cache_ttl "300"                     # Default cache TTL in seconds
+set log_level "info"                    # Logging level: debug, info, warn, error
+set api_rate_limit "100"                # API calls per minute per resource
+
+# ============================================================================
+# RESOURCE LOADING ORDER
+# ============================================================================
+# Resources are loaded in the order they appear below
+# Core resources must be loaded first, followed by dependencies, then custom resources
+
+# FiveM core resources (required)
+ensure mapmanager
+ensure chat
+ensure spawnmanager
+ensure sessionmanager
+ensure basic-gamemode
+ensure hardcap
+ensure baseevents
+
+# Database dependency (required for framework)
+ensure shiva-db
+
+# Framework
+ensure shiva-core
+
+# All default modules
+ensure [shiva-modules]
+
+# Server owner's overrides
+ensure [shiva-overrides]
+
+ensure shiva-boot
+
+# Third party
+ensure pma-voice
+
+# Existing gameplay resources (if present)
+ensure [standalone]
+ensure [gameplay]
+ensure [gamemodes]
+
+# External modules can be added here
+# Example:
+# ensure your-custom-inventory
+# ensure your-economy-system
+# ensure your-job-system
+
+# ============================================================================
+# PERMISSIONS & ACCESS CONTROL
+# ============================================================================
+
+# Admin permissions
+add_ace group.admin command allow
+add_ace group.admin command.quit deny
+add_ace group.admin framework.admin allow
+
+# Moderator permissions
+add_ace group.mod framework.mod allow
+
+# Player group assignments (replace with actual identifiers)
+# To get your identifiers: join server and check console/logs
+# add_principal identifier.license:YOUR_LICENSE_HERE group.admin
+# add_principal identifier.steam:YOUR_STEAM_ID_HERE group.admin
+
+# ============================================================================
+# SERVER BROWSER & BRANDING
+# ============================================================================
+
+# Uncomment to hide server from public browser
+# sv_master1 ""
+
+# Server icon (96x96 PNG) - place in server root
+# load_server_icon server-icon.png
+
+# ============================================================================
+# END OF CONFIGURATION
+# ============================================================================

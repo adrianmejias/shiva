@@ -1,23 +1,23 @@
-[submodule "resources/[shiva]/shiva-core"]
-	path = resources/[shiva]/shiva-core
+[submodule "config/resources/[shiva]/shiva-core"]
+	path = config/resources/[shiva]/shiva-core
 	url = git@github.com:adrianmejias/shiva-core.git
 	branch = main
 	update = rebase
 
-[submodule "resources/[shiva]/shiva-fw"]
-	path = resources/[shiva]/shiva-fw
+[submodule "config/resources/[shiva]/shiva-fw"]
+	path = config/resources/[shiva]/shiva-fw
 	url = git@github.com:adrianmejias/shiva-fw.git
 	branch = main
 	update = rebase
 
-[submodule "resources/[shiva]/shiva-db"]
-	path = resources/[shiva]/shiva-db
+[submodule "config/resources/[shiva]/shiva-db"]
+	path = config/resources/[shiva]/shiva-db
 	url = git@github.com:adrianmejias/shiva-db.git
 	branch = main
 	update = rebase
 
-[submodule "resources/[shiva-modules]"]
-	path = resources/[shiva-modules]
+[submodule "config/resources/[shiva-modules]"]
+	path = config/resources/[shiva-modules]
 	url = git@github.com:adrianmejias/shiva-modules.git
 	branch = main
 	update = rebase
