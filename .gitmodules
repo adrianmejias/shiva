@@ -4,6 +4,12 @@
 	branch = main
 	update = rebase
 
+[submodule "resources/[shiva]/shiva-fw"]
+	path = resources/[shiva]/shiva-fw
+	url = git@github.com:adrianmejias/shiva-fw.git
+	branch = main
+	update = rebase
+
 [submodule "resources/[shiva-modules]"]
 	path = resources/[shiva-modules]
 	url = git@github.com:adrianmejias/shiva-modules.git
