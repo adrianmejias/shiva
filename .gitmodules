@@ -10,6 +10,12 @@
 	branch = main
 	update = rebase
 
+[submodule "resources/[shiva]/shiva-db"]
+	path = resources/[shiva]/shiva-db
+	url = git@github.com:adrianmejias/shiva-db.git
+	branch = main
+	update = rebase
+
 [submodule "resources/[shiva-modules]"]
 	path = resources/[shiva-modules]
 	url = git@github.com:adrianmejias/shiva-modules.git
