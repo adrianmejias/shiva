@@ -1,0 +1,11 @@
+[submodule "resources/[shiva]/shiva-core"]
+	path = resources/[shiva]/shiva-core
+	url = git@github.com:adrianmejias/shiva-core.git
+	branch = main
+	update = rebase
+
+[submodule "resources/[shiva-modules]"]
+	path = resources/[shiva-modules]
+	url = git@github.com:adrianmejias/shiva-modules.git
+	branch = main
+	update = rebase
