@@ -1,0 +1,14 @@
+{
+  "name": "shiva-db",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal MySQL/MariaDB bridge for Shiva with no bundled UI or compatibility bloat.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "check": "node --check server.js"
+  },
+  "dependencies": {
+    "mysql2": "^3.11.3"
+  }
+}
