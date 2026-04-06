@@ -1,23 +1,20 @@
-[submodule "config/resources/[shiva]/shiva-core"]
-	path = config/resources/[shiva]/shiva-core
+[submodule "fivem/resources/[shiva]/shiva-core"]
+	path = fivem/resources/[shiva]/shiva-core
 	url = git@github.com:adrianmejias/shiva-core.git
 	branch = main
 	update = rebase
-
-[submodule "config/resources/[shiva]/shiva-fw"]
-	path = config/resources/[shiva]/shiva-fw
+[submodule "fivem/resources/[shiva]/shiva-fw"]
+	path = fivem/resources/[shiva]/shiva-fw
 	url = git@github.com:adrianmejias/shiva-fw.git
 	branch = main
 	update = rebase
-
-[submodule "config/resources/[shiva]/shiva-db"]
-	path = config/resources/[shiva]/shiva-db
+[submodule "fivem/resources/[shiva]/shiva-db"]
+	path = fivem/resources/[shiva]/shiva-db
 	url = git@github.com:adrianmejias/shiva-db.git
 	branch = main
 	update = rebase
-
-[submodule "config/resources/[shiva-modules]"]
-	path = config/resources/[shiva-modules]
+[submodule "fivem/resources/[shiva-modules]"]
+	path = fivem/resources/[shiva-modules]
 	url = git@github.com:adrianmejias/shiva-modules.git
 	branch = main
 	update = rebase
