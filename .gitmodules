@@ -8,6 +8,11 @@
 	url = git@github.com:adrianmejias/shiva-fw.git
 	branch = main
 	update = rebase
+[submodule "fivem/resources/[shiva]/shiva-boot"]
+	path = fivem/resources/[shiva]/shiva-boot
+	url = git@github.com:adrianmejias/shiva-boot.git
+	branch = main
+	update = rebase
 [submodule "fivem/resources/[shiva]/shiva-db"]
 	path = fivem/resources/[shiva]/shiva-db
 	url = git@github.com:adrianmejias/shiva-db.git

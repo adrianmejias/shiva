@@ -10,16 +10,13 @@ DEFAULT_SUBMODULE_UPDATE="${DEFAULT_SUBMODULE_UPDATE:-rebase}"
 SHIVA_CORE_PATH="fivem/resources/[shiva]/shiva-core"
 SHIVA_FW_PATH="fivem/resources/[shiva]/shiva-fw"
 SHIVA_DB_PATH="fivem/resources/[shiva]/shiva-db"
+SHIVA_BOOT_PATH="fivem/resources/[shiva]/shiva-boot"
 SHIVA_MODULES_PATH="fivem/resources/[shiva-modules]"
-
-LEGACY_SHIVA_CORE_PATH="config/resources/[shiva]/shiva-core"
-LEGACY_SHIVA_FW_PATH="config/resources/[shiva]/shiva-fw"
-LEGACY_SHIVA_DB_PATH="config/resources/[shiva]/shiva-db"
-LEGACY_SHIVA_MODULES_PATH="config/resources/[shiva-modules]"
 
 SHIVA_CORE_URL="git@github.com:adrianmejias/shiva-core.git"
 SHIVA_FW_URL="git@github.com:adrianmejias/shiva-fw.git"
 SHIVA_DB_URL="git@github.com:adrianmejias/shiva-db.git"
+SHIVA_BOOT_URL="git@github.com:adrianmejias/shiva-boot.git"
 SHIVA_MODULES_URL="git@github.com:adrianmejias/shiva-modules.git"
 
 print_usage() {
@@ -105,6 +102,7 @@ links_add_cmd() {
     add_link "$SHIVA_FW_PATH" "$SHIVA_FW_URL" "$DEFAULT_SUBMODULE_BRANCH" "$DEFAULT_SUBMODULE_UPDATE"
     add_link "$SHIVA_DB_PATH" "$SHIVA_DB_URL" "$DEFAULT_SUBMODULE_BRANCH" "$DEFAULT_SUBMODULE_UPDATE"
     add_link "$SHIVA_MODULES_PATH" "$SHIVA_MODULES_URL" "$DEFAULT_SUBMODULE_BRANCH" "$DEFAULT_SUBMODULE_UPDATE"
+    add_link "$SHIVA_BOOT_PATH" "$SHIVA_BOOT_URL" "$DEFAULT_SUBMODULE_BRANCH" "$DEFAULT_SUBMODULE_UPDATE"
     echo "✅ Default Shiva repo links added."
 }
 
@@ -114,10 +112,7 @@ links_remove_cmd() {
     remove_link "$SHIVA_FW_PATH"
     remove_link "$SHIVA_DB_PATH"
     remove_link "$SHIVA_MODULES_PATH"
-    remove_link "$LEGACY_SHIVA_CORE_PATH"
-    remove_link "$LEGACY_SHIVA_FW_PATH"
-    remove_link "$LEGACY_SHIVA_DB_PATH"
-    remove_link "$LEGACY_SHIVA_MODULES_PATH"
+    remove_link "$SHIVA_BOOT_PATH"
     echo "✅ Default Shiva repo links removed."
 }
 
