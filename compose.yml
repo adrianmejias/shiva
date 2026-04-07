@@ -31,9 +31,9 @@ services:
                 max-size: "10m"
                 max-file: "3"
         networks:
-            - fivem
+            - shiva
 networks:
-    fivem:
-        name: fivem
+    shiva:
+        name: shiva
         driver: bridge
         external: true
