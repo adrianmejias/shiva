@@ -24,6 +24,8 @@ bun.lock
 
 # Env
 .env
+.env.local
+.env.*.local
 
 # Fivem
 server.cfg
