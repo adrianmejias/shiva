@@ -1,5 +1,5 @@
 # ============================================================================
-# 622 RP Server Configuration Template
+# Shiva RP Server Configuration Template
 # ============================================================================
 
 # ============================================================================
@@ -24,6 +24,16 @@ sets sv_projectDesc {APP_DESCRIPTION}
 
 # Server tags for categorization in the server browser
 sets tags {APP_TAGS}
+
+# ============================================================================
+# SERVER BROWSER & BRANDING
+# ============================================================================
+
+# Uncomment to hide server from public browser
+# sv_master1 ""
+
+# Server icon (96x96 PNG) - place in server root
+# load_server_icon server-icon.png
 
 # ============================================================================
 # NETWORK CONFIGURATION
@@ -72,61 +82,6 @@ set onesync_enableBeyond 1
 set onesync_population 1
 
 # ============================================================================
-# 622 CORE FRAMEWORK CONFIGURATION
-# ============================================================================
-
-# Framework debug mode (enables detailed logging)
-set framework_debug {APP_DEBUG}
-
-# Core framework settings (these are available to external modules)
-set cache_ttl "300"                     # Default cache TTL in seconds
-set log_level "info"                    # Logging level: debug, info, warn, error
-set api_rate_limit "100"                # API calls per minute per resource
-
-# ============================================================================
-# RESOURCE LOADING ORDER
-# ============================================================================
-# Resources are loaded in the order they appear below
-# Core resources must be loaded first, followed by dependencies, then custom resources
-
-# FiveM core resources (required)
-ensure mapmanager
-ensure chat
-ensure spawnmanager
-ensure sessionmanager
-ensure basic-gamemode
-ensure hardcap
-ensure baseevents
-
-# Database dependency (required for framework)
-ensure shiva-db
-
-# Framework
-ensure shiva-core
-
-# All default modules
-ensure [shiva-modules]
-
-# Server owner's overrides
-ensure [shiva-overrides]
-
-ensure shiva-boot
-
-# Third party
-ensure pma-voice
-
-# Existing gameplay resources (if present)
-ensure [standalone]
-ensure [gameplay]
-ensure [gamemodes]
-
-# External modules can be added here
-# Example:
-# ensure your-custom-inventory
-# ensure your-economy-system
-# ensure your-job-system
-
-# ============================================================================
 # PERMISSIONS & ACCESS CONTROL
 # ============================================================================
 
@@ -144,14 +99,39 @@ add_ace group.mod framework.mod allow
 # add_principal identifier.steam:YOUR_STEAM_ID_HERE group.admin
 
 # ============================================================================
-# SERVER BROWSER & BRANDING
+# SHIVA CORE FRAMEWORK CONFIGURATION
 # ============================================================================
 
-# Uncomment to hide server from public browser
-# sv_master1 ""
+# Shiva secrets (keep these out of version control!)
+set SHIVA_API_SECRET "a-random-secret-string"
 
-# Server icon (96x96 PNG) - place in server root
-# load_server_icon server-icon.png
+# ============================================================================
+# RESOURCE LOADING ORDER
+# ============================================================================
+# Resources are loaded in the order they appear below
+# Core resources must be loaded first, followed by dependencies, then custom resources
+
+# Core dependencies — must come first
+ensure shiva-db
+ensure shiva-fw
+ensure shiva-core
+
+# shiva-boot must be last — starts the module loader
+ensure shiva-boot
+
+# Default modules
+ensure shiva-player
+ensure shiva-economy
+ensure shiva-jobs
+ensure shiva-gangs
+ensure shiva-inventory
+ensure shiva-vehicles
+ensure shiva-weapons
+ensure shiva-notifications
+ensure shiva-commands
+
+# Your custom modules
+# ensure my-custom-module
 
 # ============================================================================
 # END OF CONFIGURATION
