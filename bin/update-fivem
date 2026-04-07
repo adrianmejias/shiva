@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env sh
 
 # update-fivem - Automatically update FIVEM_NUM in Dockerfile
 # Usage: ./update-fivem [new_fivem_num]
