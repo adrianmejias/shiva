@@ -12,7 +12,7 @@ shiva/
 ├── AGENTS.md
 ├── compose.yml
 ├── bin/
-│   └── update-fivem.sh
+│   └── update-fivem
 ├── fivem/
 │   ├── README.md
 │   └── resources/

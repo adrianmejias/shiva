@@ -1,7 +1,7 @@
 #!/bin/env bash
 
-# update-fivem.sh - Automatically update FIVEM_NUM in Dockerfile
-# Usage: ./update-fivem.sh [new_fivem_num]
+# update-fivem - Automatically update FIVEM_NUM in Dockerfile
+# Usage: ./update-fivem [new_fivem_num]
 # If no argument provided, it will fetch the latest version from FiveM API
 
 set -e
@@ -241,7 +241,7 @@ main() {
         local fivem_info
         if ! fivem_info=$(fetch_latest_fivem_info); then
             print_error "Auto-fetch failed. Please specify version manually."
-            print_warning "Example: ./update-fivem.sh 19413"
+            print_warning "Example: ./update-fivem 19413"
             exit 1
         fi
         new_num=$(echo "$fivem_info" | cut -d'|' -f1)
