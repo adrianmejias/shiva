@@ -29,3 +29,9 @@ bun.lock
 
 # Fivem
 server.cfg
+
+# txData
+txData/*.json
+txData/*.log
+txData/*.history
+txData/*.cache

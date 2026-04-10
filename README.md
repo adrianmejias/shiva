@@ -54,9 +54,8 @@ shiva/
 ├── runtimes/
 │   └── alpine-3/
 │       ├── Dockerfile
+|       └── server.cfg.stub
 │       └── entrypoint.sh
-├── stubs/
-│   └── server.cfg.stub
 └── txData/
 ```
 

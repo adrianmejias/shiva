@@ -32,9 +32,9 @@ RUN apk add --no-cache bash curl wget bzip2 unzip xz tini git python3 nodejs npm
     | tar xz --strip-components=1 -C opt/cfx-server-data \
     && apk -p $PWD add tini
 
-COPY stubs/server.cfg.stub /output/opt/cfx-server-data/server.cfg
-COPY entrypoint.sh /output/usr/bin/entrypoint
-RUN chmod +x /output/usr/bin/entrypoint
+COPY entrypoint.sh /output/usr/bin/entrypoint.sh
+COPY server.cfg.stub /output/opt/cfx-server-data/server.cfg
+RUN chmod +x /output/usr/bin/entrypoint.sh
 
 FROM scratch
 
@@ -50,5 +50,5 @@ WORKDIR /config
 
 EXPOSE 30120/tcp 30120/udp 40120/tcp
 
-CMD ["/usr/bin/entrypoint"]
-ENTRYPOINT ["/sbin/tini", "-s", "--", "/usr/bin/entrypoint"]
+CMD ["/usr/bin/entrypoint.sh"]
+ENTRYPOINT ["/sbin/tini", "-s", "--", "/usr/bin/entrypoint.sh"]
