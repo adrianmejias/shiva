@@ -103,7 +103,13 @@ add_ace group.mod framework.mod allow
 # ============================================================================
 
 # Shiva secrets (keep these out of version control!)
-set SHIVA_API_SECRET "a-random-secret-string"
+set shiva_api_secret "a-random-secret-string"
+
+# Environment setting (development, staging, production)
+set shiva_environment "development"
+
+# Enable debug mode for development (disable in production)
+set shiva_debug true
 
 # ============================================================================
 # RESOURCE LOADING ORDER
@@ -115,24 +121,7 @@ set SHIVA_API_SECRET "a-random-secret-string"
 ensure shiva-db
 ensure shiva-fw
 ensure shiva-core
-
-# shiva-boot must be last — starts the module loader
 ensure shiva-boot
-
-# Default modules
-ensure shiva-player
-ensure shiva-economy
-ensure shiva-jobs
-ensure shiva-gangs
-ensure shiva-inventory
-ensure shiva-vehicles
-ensure shiva-weapons
-ensure shiva-notifications
-ensure shiva-commands
 
 # Your custom modules
 # ensure my-custom-module
-
-# ============================================================================
-# END OF CONFIGURATION
-# ============================================================================
