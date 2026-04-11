@@ -32,6 +32,33 @@ services:
                 max-file: "3"
         networks:
             - shiva
+    mysql:
+        container_name: mysql
+        image: mysql:latest
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        restart: unless-stopped
+        stdin_open: true
+        tty: true
+        init: true
+        platform: linux/amd64
+        environment:
+            MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-password}"
+            # uncomment below if you want to automatically create and select a database
+            MYSQL_DATABASE: "${MYSQL_DATABASE:-fivem}"
+        volumes:
+            - mysql-data:/var/lib/mysql
+        ports:
+            - "${DB_PORT:-3306}:3306"
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "10m"
+                max-file: "3"
+        networks:
+            - shiva
+volumes:
+    mysql-data:
 networks:
     shiva:
         name: shiva

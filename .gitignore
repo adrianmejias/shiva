@@ -28,10 +28,11 @@ bun.lock
 .env.*.local
 
 # Fivem
-server.cfg
+/fivem/server.cfg
 
 # txData
-txData/*.json
-txData/*.log
-txData/*.history
-txData/*.cache
+/txData/default/
+/txData/*.json
+/txData/*.log
+/txData/*.history
+/txData/*.cache

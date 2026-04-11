@@ -17,6 +17,9 @@ indent_size = 2
 [*.{json,xml}]
 indent_size = 2
 
+[*.{json,xml}]
+indent_size = 2
+
 [*.{js,ts,jsx,tsx}]
 indent_size = 2
 

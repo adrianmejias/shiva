@@ -8,7 +8,6 @@ LABEL maintainer="Adrian Mejias <adrianmejias@gmail.com>"
 LABEL description="FiveM server container"
 LABEL version="1.0.0"
 
-ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 ENV LD_LIBRARY_PATH=/opt/cfx-server:/usr/lib/x86_64-linux-gnu:/lib/x86_64-linux-gnu:/usr/lib:/lib
 ENV LD_PRELOAD=""
@@ -22,7 +21,7 @@ WORKDIR /output
 RUN mkdir -p /output/opt/cfx-server /output/opt/cfx-server-data /config
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apk add --no-cache bash curl wget bzip2 unzip xz tini git python3 nodejs npm yarn pnpm \
+RUN apk add --no-cache bash curl wget bzip2 unzip xz tini git python3 nodejs npm \
     && wget -O- https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${FIVEM_VER}/fx.tar.xz \
     | tar xJ --strip-components=1 \
     --exclude alpine/dev --exclude alpine/proc \
@@ -30,7 +29,7 @@ RUN apk add --no-cache bash curl wget bzip2 unzip xz tini git python3 nodejs npm
     && mkdir -p /output/opt/cfx-server-data /output/usr/local/share \
     && wget -O- http://github.com/citizenfx/cfx-server-data/archive/${DATA_VER}.tar.gz \
     | tar xz --strip-components=1 -C opt/cfx-server-data \
-    && apk -p $PWD add tini
+    && cp /sbin/tini /output/sbin/tini
 
 COPY entrypoint.sh /output/usr/bin/entrypoint.sh
 COPY server.cfg.stub /output/opt/cfx-server-data/server.cfg
