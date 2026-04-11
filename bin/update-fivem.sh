@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # update-fivem - Automatically update FIVEM_NUM in Dockerfile
-# Usage: ./update-fivem [new_fivem_num]
+# Usage: ./update-fivem.sh [new_fivem_num]
 # If no argument provided, it will fetch the latest version from FiveM API
 
 set -e
@@ -58,8 +58,8 @@ fetch_latest_fivem_info() {
     local temp_file="/tmp/fivem_artifacts_$$.html"
 
     # Known latest version as fallback (update this periodically)
-    local known_latest_num="17000"
-    local known_latest_ver="17000-e0ef7490f76a24505b8bac7065df2b7075e610ba"
+    local known_latest_num="25770"
+    local known_latest_ver="25770-8ddccd4e4dfd6a760ce18651656463f961cc4761"
 
     # Download the artifacts page
     if command -v curl >/dev/null 2>&1; then
@@ -68,7 +68,7 @@ fetch_latest_fivem_info() {
             # Check if file was actually downloaded and has content
             if [[ -f "$temp_file" ]] && [[ -s "$temp_file" ]]; then
                 # Extract the latest version from href attribute
-                # Look for pattern like href="./17000-e0ef7490f76a24505b8bac7065df2b7075e610ba/fx.tar.xz"
+                # Look for pattern like href="./25770-8ddccd4e4dfd6a760ce18651656463f961cc4761/fx.tar.xz"
                 local latest_ver=$(grep -oE 'href="\./([0-9]+-[a-f0-9]{40})/fx\.tar\.xz"' "$temp_file" | head -1 | sed 's/href="\.\///;s/\/fx\.tar\.xz"//')
 
                 # Clean up temp file
