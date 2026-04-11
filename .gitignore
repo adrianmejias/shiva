@@ -29,6 +29,8 @@ bun.lock
 
 # Fivem
 /fivem/server.cfg
+/fivem/.replxx_history
+/fivem/cache/
 
 # txData
 /txData/default/
@@ -36,3 +38,6 @@ bun.lock
 /txData/*.log
 /txData/*.history
 /txData/*.cache
+
+# Claude
+.claude/settings.local.json
