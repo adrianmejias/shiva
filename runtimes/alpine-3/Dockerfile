@@ -32,7 +32,6 @@ RUN apk add --no-cache bash curl wget bzip2 unzip xz tini git python3 nodejs npm
     && cp /sbin/tini /output/sbin/tini
 
 COPY entrypoint.sh /output/usr/bin/entrypoint.sh
-COPY server.cfg.stub /output/opt/cfx-server-data/server.cfg
 RUN chmod +x /output/usr/bin/entrypoint.sh
 
 FROM scratch
