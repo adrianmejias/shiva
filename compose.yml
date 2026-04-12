@@ -47,7 +47,6 @@ services:
         platform: linux/amd64
         environment:
             MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-password}"
-            # uncomment below if you want to automatically create and select a database
             MYSQL_DATABASE: "${MYSQL_DATABASE:-fivem}"
             MYSQL_USER: "${MYSQL_USER:-fivem}"
             MYSQL_PASSWORD: "${MYSQL_PASSWORD:-password}"

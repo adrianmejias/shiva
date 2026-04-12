@@ -3,3 +3,4 @@
 /resources/\[local\]/
 /db/
 .replxx_history
+*.cfg.bkp
