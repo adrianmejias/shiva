@@ -124,15 +124,7 @@ set shiva_debug {APP_DEBUG}
 
 ## [txAdmin CFG validator]: you MUST NOT start/stop/ensure txadmin resources.
 
-ensure oxmysql
-
-##
-ensure mapmanager
-# ensure chat
-ensure spawnmanager
-ensure sessionmanager
-ensure hardcap
-ensure rconlog
+# ensure oxmysql
 
 # Core dependencies — must come first
 ensure shiva-db
