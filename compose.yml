@@ -14,6 +14,7 @@ services:
             - LICENSE_KEY="${LICENSE_KEY}"
             - STEAM_KEY="${STEAM_KEY}"
             - RCON_PASSWORD="${RCON_PASSWORD:-changeme}"
+            - APP_DEBUG="${APP_DEBUG:-false}"
             - NO_DEFAULT_CONFIG="${NO_DEFAULT_CONFIG}"
             - NO_LICENSE_KEY="${NO_LICENSE_KEY}"
             - NO_STEAM_KEY="${NO_STEAM_KEY}"

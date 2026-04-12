@@ -29,8 +29,8 @@ sets tags {APP_TAGS}
 # SERVER BROWSER & BRANDING
 # ============================================================================
 
-# Uncomment to hide server from public browser
-# sv_master1 ""
+# Comment to hide server from public browser
+sv_master1 ""
 
 # Server icon (96x96 PNG) - place in server root
 # load_server_icon server-icon.png
@@ -93,23 +93,28 @@ add_ace group.admin framework.admin allow
 # Moderator permissions
 add_ace group.mod framework.mod allow
 
+# Example: Adding an admin
+# add_principal identifier.discord:{DISCORD_ID} group.admin
+# add_ace group.admin command allow # allow all commands
+# add_ace group.admin command.quit deny # but don't allow quit
+
 # Player group assignments (replace with actual identifiers)
 # To get your identifiers: join server and check console/logs
-# add_principal identifier.license:YOUR_LICENSE_HERE group.admin
-# add_principal identifier.steam:YOUR_STEAM_ID_HERE group.admin
+# add_principal identifier.license:{LICENSE_ID} group.admin
+# add_principal identifier.steam:{STEAM_ID} group.admin
 
 # ============================================================================
 # SHIVA CORE FRAMEWORK CONFIGURATION
 # ============================================================================
 
 # Shiva secrets (keep these out of version control!)
-set shiva_api_secret "a-random-secret-string"
+set shiva_api_secret "{SHIVA_API_SECRET}"
 
 # Environment setting (development, staging, production)
-set shiva_environment "development"
+set shiva_environment "{APP_ENV}"
 
 # Enable debug mode for development (disable in production)
-set shiva_debug true
+set shiva_debug {APP_DEBUG}
 
 # ============================================================================
 # RESOURCE LOADING ORDER
