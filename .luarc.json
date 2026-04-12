@@ -281,7 +281,10 @@
     "SetCamActive",
     "_wiretaps",
     "_stakeouts",
-    "QB"
+    "QB",
+        "IsDisabledControlPressed",
+        "EnableControlAction",
+        "SetEntityCollision"
   ],
   "Lua.workspace.library": [
     "libs/shiva",
